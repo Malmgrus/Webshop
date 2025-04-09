@@ -1,42 +1,36 @@
 #root {
-  max-width: 1280px;
+/*  max-width: 1280px;*/
+  width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: var(--primaryColor);
+
+  --primaryColor: #DBD3D3;
+  --secondaryColor: #091057;
+  --accentColor: #EC8305;
+  --extraColor: #024CAA;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: transparent;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar {
+  width: 20%;
+  background-color: var(--secondaryColor);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.nav_menu {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  color: white;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.basket_btn {
+  background-color: var(--accentColor);
 }
