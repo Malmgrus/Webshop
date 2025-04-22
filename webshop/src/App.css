@@ -19,6 +19,10 @@
   background-color: transparent;
 }
 
+.test {
+  background-color: green;
+}
+
 .navbar {
   width: 20%;
   background-color: var(--secondaryColor);
