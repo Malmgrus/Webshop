@@ -1,15 +1,17 @@
 #root {
 /*  max-width: 1280px;*/
   width: 100%;
-  margin: 0 auto;
-  padding: 2rem;
   text-align: center;
   background-color: var(--primaryColor);
 
-  --primaryColor: #DBD3D3;
+  --primaryColor: white;
   --secondaryColor: #091057;
   --accentColor: #EC8305;
   --extraColor: #024CAA;
+}
+
+a button {
+  cursor: pointer;
 }
 
 .header {
@@ -17,15 +19,15 @@
   justify-content: space-between;
   flex-direction: row;
   background-color: transparent;
-}
-
-.test {
-  background-color: green;
+  margin-top: 5vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 
 .navbar {
   width: 20%;
   background-color: var(--secondaryColor);
+  border-radius: 20px;
 }
 
 .nav_menu {
@@ -35,6 +37,35 @@
   color: white;
 }
 
+.aboutBuisness {
+  width: 100vw;
+  height: 60vh;
+  margin-top: 15vh;
+  margin-bottom: 5vh;
+}
+
+.aboutText {
+  float: right;
+  height: 60vh;
+  width: 30vw;
+  margin-right: 20vw;
+  margin-bottom: 5vh;
+  opacity: 0.8;
+  background-color: var(--extraColor);
+  color: white;
+  
+}
+
 .basket_btn {
   background-color: var(--accentColor);
+  border-radius: 20px;
+  padding: 3%;
+}
+
+.slide > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  height: 45vh;
 }

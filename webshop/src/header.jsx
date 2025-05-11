@@ -10,8 +10,8 @@ function Navigation() {
             </svg></a>
             <div className="navbar">
                 <ul className="nav_menu">
-                    <li><a>Produkter</a></li>
-                    <li className="basket_btn"><a>Varukorg</a></li>
+                    <li className="products_btn"><a>Produkter</a></li>
+                    <li className="basket_btn"><a href="">Varukorg</a></li>
                 </ul>
             </div>
         </header>
