@@ -1,27 +1,10 @@
 import React, {useEffect, useState} from "react";
+import { Link } from "react-router-dom";
 import './products.css';
-
 
 function Products() {
     const [data, setData] = useState([]);
     const [filteredCat, setFilteredCat] = useState([]);
-
-    function filtering() {
-        /*let values = [];
-        let asd = data;
-        console.log(asd);
-        if (!data) {
-            asd.foreach((index) => {
-                values.push(index);
-                /*index.key((key) => {
-                    if (!key == values[index]) {
-                        values.push(key);
-                    }
-                })
-            })
-        }
-        console.log("values", values);*/
-    }
     
     useEffect(() => {
         function fetching() {
@@ -58,19 +41,21 @@ function Products() {
             {
             filteredCat.map((name, i) => {
                 return (
-                    <a className="categoryName" key={i}>{name}</a>
+                    <button className="categoryName" key={i}>{name}</button>
                 )
 })
             }
         </div>
-        <section className="products">
+        <section className="products" id="products">
             <div className="productsContainer">
                 {
                     data.map((item, i) => {
+                        const urlParams =  {title: item.title, image: item.image, price: item.price, description: item.description}
                         return (
                             <div className="productsContainerItem" key={i}>
+                                <Link to={`/product/${item.id}`} state={urlParams}>
                                 <img className="productPic" src={item.image} alt={item.title} />
-                                
+                                </Link>
                             </div>
                         )
                     })

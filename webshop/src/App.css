@@ -7,11 +7,34 @@
   --primaryColor: white;
   --secondaryColor: #091057;
   --accentColor: #EC8305;
-  --extraColor: #024CAA;
+  --extraColor: rgb(61, 61, 61);
 }
 
-a button {
+a {
+  text-decoration: none;
+  color: white;
   cursor: pointer;
+}
+
+.routerButton {
+  border: none;
+  background: none;
+  text-decoration: none;
+}
+
+/*a:-webkit-any-link {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}*/
+
+.background {
+  margin-top: 0;
+  background-image: url("./assets/clothesStore.jpg");
+  mask-image: linear-gradient(to bottom, var(--primaryColor) 95%, transparent);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
 }
 
 .header {
@@ -19,15 +42,24 @@ a button {
   justify-content: space-between;
   flex-direction: row;
   background-color: transparent;
-  margin-top: 5vh;
+  padding-top: 5vh;
   margin-left: 5vw;
   margin-right: 5vw;
 }
 
 .navbar {
-  width: 20%;
-  background-color: var(--secondaryColor);
+  width: 20vw;
+  opacity: 0.9;
+  background-color: var(--extraColor);
   border-radius: 20px;
+}
+
+@media (max-width: 1000px) {
+  .navbar {
+    width: 50vw;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .nav_menu {
@@ -45,18 +77,29 @@ a button {
 }
 
 .aboutText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   float: right;
   height: 60vh;
   width: 30vw;
   margin-right: 20vw;
   margin-bottom: 5vh;
-  opacity: 0.8;
-  background-color: var(--extraColor);
+  font-size: 2rem;
+  opacity: 0.75;
+  background: radial-gradient(circle, var(--secondaryColor) 65%, transparent, transparent, transparent, transparent, transparent, transparent, transparent);
+/*  background-color: var(--secondaryColor);
+  mask-image: linear-gradient(to bottom, transparent, var(--secondaryColor) 50%, transparent);*/
   color: white;
+  border-radius: 100px;
   
 }
 
-.basket_btn {
+.productsBtn {
+  padding: 3%;
+}
+
+.basketBtn {
   background-color: var(--accentColor);
   border-radius: 20px;
   padding: 3%;

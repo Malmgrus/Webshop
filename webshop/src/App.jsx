@@ -1,16 +1,19 @@
 import './App.css'
-import Navigation from './header.jsx'
-import SlideShow from './content.jsx'
-import Products from './products.jsx'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './Home.jsx';
+import ViewProduct from './ViewProduct.jsx';
 
 function App() {
 
   return (
-    <>
-    <Navigation />
-    <SlideShow />
-    <Products />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/product/:id" element={<ViewProduct />} />
+      
+      </Routes>
+
+    </BrowserRouter>
   )
 }
 
