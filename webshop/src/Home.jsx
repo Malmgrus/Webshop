@@ -1,6 +1,6 @@
-import Hero from "./content";
-import Navigation from "./header";
-import Products from "./products";
+import Hero from "./Hero";
+import Navigation from "./Navigation";
+import Products from "./products.jsx";
 import Footer from "./Footer";
 
 function Home() {
@@ -9,7 +9,6 @@ function Home() {
             <div className="background">
                 <Navigation />
                 <Hero />
-                
             </div>
             <Products />
             <Footer />

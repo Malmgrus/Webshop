@@ -1,0 +1,53 @@
+.basketContainer {
+    margin-bottom: 4vh;
+}
+
+.item {
+    display: flex;
+    justify-content: center;
+}
+
+.itemDetail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+li {
+    list-style: none;
+}
+
+.line {
+    margin-right: 3vw;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5vh;
+}
+
+.btn {
+    background-color: var(--secondaryColor);
+    color: white;
+    padding: 1%;
+    border-radius: 20px;
+    margin-top: 2vh;
+}
+
+.btn:hover {
+    background-color: var(--accentColor);
+    color: white;
+}
+
+.basketImage {
+    width: 10vw;
+    margin-right: 2vw;
+}
+
+.totalPrice {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}

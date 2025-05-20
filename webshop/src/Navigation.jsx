@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './App.css';
+import { HashLink } from 'react-router-hash-link';
+import './navigation.css';
 
 function Navigation() {
-
-    
     return (
         <header className="header">
             <Link to="/"><svg width="108" height="47" viewBox="0 0 108 47" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -12,8 +11,8 @@ function Navigation() {
             </svg></Link>
             <div className="navbar">
                 <ul className="nav_menu">
-                    <li className="productsBtn"><Link className="routerButton" to="#products">Produkter</Link></li>
-                    <li className="basketBtn"><Link className="routerButton" to="">Varukorg</Link></li>
+                    <li className="productsBtn"><HashLink className="routerButton" to="/#products">Produkter</HashLink></li>
+                    <li className="basketBtn"><Link className="routerButton" to="/basket">Varukorg</Link></li>
                 </ul>
             </div>
         </header>

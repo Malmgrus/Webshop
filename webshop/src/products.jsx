@@ -4,8 +4,11 @@ import './products.css';
 
 function Products() {
     const [data, setData] = useState([]);
+    const [category, setcategory] = useState([]);
     const [filteredCat, setFilteredCat] = useState([]);
+    const [filteredData, setFilteredData] = useState([]);
     
+    //Get data from API
     useEffect(() => {
         function fetching() {
             let data = [];
@@ -28,37 +31,68 @@ function Products() {
 
                 }
                 setData(data);
-                setFilteredCat(categorys);
+                setcategory(categorys);
             })
             .catch(error => console.log(error));
         }
         fetching();
     }, []);
 
+    function addCategory(cat) {
+        if (!filteredCat.includes(cat)) {
+            setFilteredCat([...filteredCat, cat]);
+        }
+    }
+
+    function removeCategory(cat) {
+        if (filteredCat.includes(cat)) {
+            const newCat = filteredCat.filter(item => item !== cat);
+            setFilteredCat(newCat);
+        }
+    }
+
+    function clearCategory() {
+        setFilteredCat([]);
+    }
+
+    useEffect(() => {
+        if (filteredCat.length === 0) {
+            setFilteredData(data);
+        } else {
+            setFilteredData(data.filter(item => filteredCat.includes(item.category)));
+        }
+    }, [filteredCat, data]);
+
     return (
         <>
         <div className="categorys">
-            {
-            filteredCat.map((name, i) => {
+            {category.map((item, key) => {
                 return (
-                    <button className="categoryName" key={i}>{name}</button>
+                    <button className="categoryName" key={key} onClick={() => {
+                        if (filteredCat.includes(item)) {
+                            removeCategory(item);
+                        } else {
+                            addCategory(item);
+                        }
+                    }}>
+                    {item.split("-").join(" ")}
+                    </button>
                 )
-})
-            }
+            })}
+            <button className="categoryName" onClick={() => clearCategory()}>Clear</button>
         </div>
         <section className="products" id="products">
             <div className="productsContainer">
-                {
-                    data.map((item, i) => {
-                        const urlParams =  {title: item.title, image: item.image, price: item.price, description: item.description}
-                        return (
-                            <div className="productsContainerItem" key={i}>
-                                <Link to={`/product/${item.id}`} state={urlParams}>
-                                <img className="productPic" src={item.image} alt={item.title} />
-                                </Link>
-                            </div>
-                        )
-                    })
+                {filteredData.map((product, key) => {
+                    const urlParams =  {title: product.title, image: product.image, price: product.price, description: product.description}
+                    return (
+                        <div key={key} className="productsContainerItem">
+                            <Link to={`/product/${product.id}`} state={urlParams}>
+                            <img className="productPic" src={product.image} alt={product.title} />
+                            </Link>
+                        </div>
+                    )
+                })
                 }
             </div>            
         </section>

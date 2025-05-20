@@ -1,36 +1,35 @@
 import React from 'react';
-import Navigation from './header';
-import { useEffect } from 'react';
+import Navigation from './Navigation';
+import Footer from './Footer';
 import { useParams, useLocation } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import './viewProduct.css';
 
 function ViewProduct() {
+    // Get parameters from products.jsx
     const {id, title, image, price, description} = useParams();
     const location = useLocation();
     const productDetails = location.state;
 
     function storeData() {
         const productData = {
-            id: id,
-            title: title,
-            image: image,
-            price: price,
-            description: description
+            id: productDetails.id,
+            title: productDetails.title,
+            image: productDetails.image,
+            price: productDetails.price,
+            description: productDetails.description,
         };
-
-        let basket = {};
-
-    if (!sessionStorage.hasOwnProperty(product)) {
-        basket[product] = 1;
-        sessionStorage.setItem(product, basket[product]);
-    } else {
-        let productAmount = sessionStorage.getItem(product);
-        productAmount++;
-        sessionStorage.setItem(product, productAmount);
-    }
     
-        sessionStorage.setItem('productData', JSON.stringify(productData));
+        // Check localStorage and add product
+        let basket = JSON.parse(localStorage.getItem(id)) || {};
+
+        if (Object.hasOwn(basket, "amount")) {
+            productData.amount = basket.amount + 1;
+        } else {
+            productData.amount = 1;
+        }
+
+        localStorage.setItem(id, JSON.stringify(productData));
     }
 
     return (
@@ -49,6 +48,7 @@ function ViewProduct() {
         ) : (
             <div className="error">Product not found</div>
         )}
+        <Footer />
     </>
     );
 };

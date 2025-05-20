@@ -15,3 +15,13 @@
 .productImage {
     width: 40vw;
 }
+
+@media (max-width: 800px) {
+    .productImage {
+        width: 90vw;
+    }
+    .product {
+        flex-direction: column;
+        align-items: center;
+    }
+}

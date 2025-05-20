@@ -1,0 +1,41 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: transparent;
+    padding-top: 5vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+  
+.navbar {
+    width: 20vw;
+    opacity: 0.9;
+    background-color: var(--extraColor);
+    border-radius: 20px;
+}
+
+@media (max-width: 1000px) {
+    .navbar {
+        width: 50vw;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+  
+.nav_menu {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    color: white;
+}
+
+.productsBtn {
+    padding: 3%;
+}
+  
+.basketBtn {
+    background-color: var(--accentColor);
+    border-radius: 20px;
+    padding: 3%;
+}

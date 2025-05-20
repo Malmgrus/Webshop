@@ -1,0 +1,17 @@
+.footer {
+    background-color: var(--secondaryColor);
+    width: 100vw;
+    height: 50vh;
+}
+  
+.footerItems {
+    display: flex;
+    float: left;
+    flex-direction: column;
+    margin-top: 5vh;
+    margin-left: 5vw;
+}
+  
+.footerItem {
+    margin-top: 2vh;
+}
