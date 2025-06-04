@@ -43,6 +43,14 @@ function Basket() {
                         })}
                     </ul>
                 )}
+                <form className="itemDetail">
+                    <label>Namn</label>
+                    <input placeholder="ex. Sven Svensson" className="userDetails"></input>
+                    <label>Adress</label>
+                    <input placeholder="ex. Holländargatan 38" className="userDetails"></input>
+                    <label>Kortnummer</label>
+                    <input placeholder="ex. 000000000" className="userDetails"></input>
+                </form>
                 <div className="totalPrice">
                     <span>Total price:</span>
                     <span>{basket.reduce((acc, item) => {
