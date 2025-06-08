@@ -33,7 +33,7 @@ function Basket() {
                             <li className="item" key={parsedData.id}>
                             <img className="basketImage" src={parsedData.image} alt={parsedData.title}/>
                             <div className="itemDetail">
-                                <span ClassName="detail">{parsedData.title}</span>
+                                <span className="detail">{parsedData.title}</span>
                                 <span className="detail">Amount: {parsedData.amount}</span>
                                 <span className="detail">{parsedData.price} €</span>
                             </div>

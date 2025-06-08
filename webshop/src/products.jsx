@@ -23,6 +23,7 @@ function Products() {
             .then(response => response.json())
             .then((response) => {
 
+                // sort one of every category
                 for (let item of response) {
                     data.push(item);
                     if (!categorys.includes(item.category)) {
@@ -75,7 +76,7 @@ function Products() {
                             addCategory(item);
                         }
                     }}>
-                    {item.split("-").join(" ")}
+                    {item}
                     </button>
                 )
             })}
