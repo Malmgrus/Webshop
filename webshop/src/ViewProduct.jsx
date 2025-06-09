@@ -28,15 +28,9 @@ function ViewProduct() {
         } else {
             productData.amount = 1;
         }
-/*        setStore(prev => {
-            return (
-                {...prev, [id]: productData} // Store the product data in the store
-            )
-        })*/
         setStore(prev => {
             return {...prev, [id]: productData};
         })
-        console.log("store", store)
     }
 
     return (

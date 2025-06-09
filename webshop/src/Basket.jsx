@@ -27,9 +27,7 @@ function Basket() {
                     <p>Your basket is empty.</p>
                 ) : (
                     <ul>
-                        {Object.entries(store).map((index, value) => {
-                            console.log("index", index)
-                            console.log("value", value)
+                        {Object.entries(store).map((index) => {
                             return (
                             <>
                             <li className="item" key={index.id}>
