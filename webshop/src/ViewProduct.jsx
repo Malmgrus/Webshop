@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { StoreContext } from './Provider.jsx';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import { useParams, useLocation } from 'react-router-dom';
@@ -7,6 +8,7 @@ import './viewProduct.css';
 
 function ViewProduct() {
     // Get parameters from products.jsx
+    const { store, setStore } = useContext(StoreContext);
     const {id, title, image, price, description} = useParams();
     const location = useLocation();
     const productDetails = location.state;
@@ -21,15 +23,20 @@ function ViewProduct() {
         };
     
         // Check localStorage and add product
-        let basket = JSON.parse(localStorage.getItem(id)) || {};
+        //let basket = JSON.parse(localStorage.getItem(id)) || {};
 
-        if (Object.hasOwn(basket, "amount")) {
-            productData.amount = basket.amount + 1;
+        if (store?.amount !== undefined) {
+            productData.amount = store.amount + 1;
         } else {
             productData.amount = 1;
         }
-
-        localStorage.setItem(id, JSON.stringify(productData));
+        setStore(prev => {
+            return (
+                {...prev, [id]: productData} // Store the product data in the store
+            )
+        })
+        console.log(typeof store)
+        console.log(store);
     }
 
     return (

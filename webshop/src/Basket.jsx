@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext} from 'react';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import './basket.css';
+import { StoreContext } from './App.jsx';
 
 function Basket() {
+
+    const store = useContext(StoreContext)
 
     function checkout() {
         alert("Thank you for your purchase!");
@@ -13,29 +16,29 @@ function Basket() {
         localStorage.clear();
     }
 
-    const basket = Object.values(localStorage) || {};
+//    const basket = Object.values(localStorage) || {};
 
     return (
-        <>
+        <>{/*}
             <Navigation />
 
             <div className="basketContainer">
                 <h1>Basket</h1>
                 <hr></hr>
-                {Object.keys(basket).length == 0 ? (
+                {Object.keys(store).length == 0 ? (
                     <p>Your basket is empty.</p>
                 ) : (
                     <ul>
-                        {basket.map((index) => {
-                            let parsedData = JSON.parse(index);
+                        {store.map((index) => {
+//                            let parsedData = JSON.parse(index);
                             return (
                             <>
-                            <li className="item" key={parsedData.id}>
-                            <img className="basketImage" src={parsedData.image} alt={parsedData.title}/>
+                            <li className="item" key={index.id}>
+                            <img className="basketImage" src={index.image} alt={index.title}/>
                             <div className="itemDetail">
-                                <span className="detail">{parsedData.title}</span>
-                                <span className="detail">Amount: {parsedData.amount}</span>
-                                <span className="detail">{parsedData.price} €</span>
+                                <span className="detail">{index.title}</span>
+                                <span className="detail">Amount: {index.amount}</span>
+                                <span className="detail">{index.price} €</span>
                             </div>
                             </li>
                             <hr className="line"></hr>
@@ -53,9 +56,7 @@ function Basket() {
                 </form>
                 <div className="totalPrice">
                     <span>Total price:</span>
-                    <span>{basket.reduce((acc, item) => {
-                        let parsedData = JSON.parse(item);
-                        return acc + (parsedData.price * parsedData.amount);
+                    <span>{store.keys((item) => { return (item.price * item.amount);
                     }, 0)} €</span>
                 </div>
                 <div className="buttons">
@@ -65,7 +66,7 @@ function Basket() {
             </div>
 
             <Footer />
-        </>
+        */}</>
     )
 }
 
