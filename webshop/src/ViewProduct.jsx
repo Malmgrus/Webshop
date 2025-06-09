@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { StoreContext } from './Provider.jsx';
+import { StoreContext } from './App.jsx';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import { useParams, useLocation } from 'react-router-dom';
@@ -8,14 +8,14 @@ import './viewProduct.css';
 
 function ViewProduct() {
     // Get parameters from products.jsx
-    const { store, setStore } = useContext(StoreContext);
+    const {store, setStore } = useContext(StoreContext);
     const {id, title, image, price, description} = useParams();
     const location = useLocation();
     const productDetails = location.state;
 
     function storeData() {
         const productData = {
-            id: productDetails.id,
+            id: parseInt(id),
             title: productDetails.title,
             image: productDetails.image,
             price: productDetails.price,
@@ -23,20 +23,20 @@ function ViewProduct() {
         };
     
         // Check localStorage and add product
-        //let basket = JSON.parse(localStorage.getItem(id)) || {};
-
-        if (store?.amount !== undefined) {
-            productData.amount = store.amount + 1;
+        if (store[id]?.amount != undefined) {
+            productData.amount = store[id].amount + 1;
         } else {
             productData.amount = 1;
         }
-        setStore(prev => {
+/*        setStore(prev => {
             return (
                 {...prev, [id]: productData} // Store the product data in the store
             )
+        })*/
+        setStore(prev => {
+            return {...prev, [id]: productData};
         })
-        console.log(typeof store)
-        console.log(store);
+        console.log("store", store)
     }
 
     return (
